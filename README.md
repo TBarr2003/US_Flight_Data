@@ -39,6 +39,8 @@ See `architecture/architecture.pdf` for the full diagram.
 ## Team Members
 
 - Tristan Barrera
+- Tyler Henry
+- Gibbs Dang
 
 ## Setup Instructions
 
