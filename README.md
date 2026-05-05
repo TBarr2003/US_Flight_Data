@@ -39,8 +39,8 @@ See `architecture/architecture.pdf` for the full diagram.
 ## Team Members
 
 - Tristan Barrera
-- Tyler Henry
 - Gibbs Dang
+- Tyler Henry
 
 ## Setup Instructions
 
@@ -75,6 +75,17 @@ Wait for all 3 nodes to show UN status:
 ```bash
 docker exec -it cassandra-1 nodetool status
 ```
+### Stopping the cluster
+```bash
+docker compose down
+```
+This stops all containers but preserves all data in Docker volumes.
+
+### Restarting after shutdown
+```bash
+docker compose up -d
+```
+Wait 2 minutes for all 3 nodes to reach UN status, then run the dashboard.
 
 ### 5. Create keyspace and tables
 ```bash
@@ -146,7 +157,14 @@ queries without requiring a full table scan.
 
 ## Screenshots
 
-_(Add screenshots of your Streamlit dashboard here)_
+### Carrier Reliability
+![Carrier Reliability](screenshots/reliable.png)
+
+### Route Delays
+![Route Delays](screenshots/delay.png)
+
+### Seasonal Patterns
+![Seasonal Patterns](screenshots/delay_cause.png)
 
 ## Pipeline Reliability
 
