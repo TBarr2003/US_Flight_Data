@@ -19,7 +19,9 @@ dependencies = [
 [dependency-groups]
 dev = [
     "mypy>=1.20.2",
+    "pandas-stubs>=3.0.0.260204",
     "pytest>=9.0.3",
+    "types-gevent>=26.4.0.20260409",
 ]
 
 [tool.uv]

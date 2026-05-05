@@ -138,8 +138,10 @@ def ingest_file(session, zip_path: Path):
             batch = df.iloc[batch_start:batch_start + 1000]
             for _, row in batch.iterrows():
                 try:
-                    record = FlightRaw(**row.to_dict())
-                    session.execute(INSERT_QUERY, record.model_dump())
+                    row_dict = {str(k): v for k, v in row.to_dict().items()}
+                    record = FlightRaw(**row_dict)  # type: ignore[arg-type]
+                    data = {str(k): v for k, v in record.model_dump().items()}
+                    session.execute(INSERT_QUERY, data)
                     inserted += 1
                 except Exception as e:
                     bad_records += 1

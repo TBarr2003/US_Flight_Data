@@ -85,11 +85,11 @@ def connect_cassandra():
     return session
 
 
-def safe_float(val, default=0.0) -> float:
+def safe_float(val: object, default: float = 0.0) -> float:
     if val is None:
         return default
     try:
-        f = float(val)
+        f = float(val)  # type: ignore[arg-type]
         return default if math.isnan(f) else f
     except (ValueError, TypeError):
         return default
@@ -193,7 +193,7 @@ def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     # Final pass — must be absolutely last thing before return
     for col in STRING_COLS:
         if col in df.columns:
-            new_vals = []
+            new_vals: list[str | None] = []            
             for val in df[col]:
                 if val is None:
                     new_vals.append(None)
