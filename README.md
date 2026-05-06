@@ -171,4 +171,4 @@ queries without requiring a full table scan.
 - Pydantic validation on every ingested row
 - Bad records logged to `logs/` directory, never silently dropped
 - Retry-safe INSERT statements (Cassandra upserts by default)
-- Cleaning layer handles NaN, null, and type mismatch gracefully
+- Cleaning layer handles NaN, null, and type mismatch gracefully yes
